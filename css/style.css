@@ -1,0 +1,14 @@
+* {padding: 0; margin: 0;  border: 0;}
+html {font-size: 20px; scroll-behavior: smooth;}
+body {font-size: 1rem; color: #000000; line-height: 1.4; font-family: "Raleway"; font-weight: 500; }
+a {text-decoration: none; color: #000000;}
+ul, ol {list-style-type: none;}
+p {margin-bottom: 1em;}
+br {margin:0 !important; color: #FFFFFF;}
+
+.w { color: #FFFFFF; }
+
+/* HEADERS */
+h1 { font-weight: 600; font-size: 2rem;}
+h2 { font-weight: bold; text-transform: uppercase; font-size: 1.6rem;} 
+h3 { font-weight: 600; font-size: 1.2rem;}
