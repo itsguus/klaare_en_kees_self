@@ -1,0 +1,56 @@
+{% include header.html %}
+
+<section class="home">
+    <h1>{{ page.home.title }}</h1>
+    <h2 class="center">{{ page.home.text }}</h2>
+</section>
+
+<section class="over-ons">
+    <h2 class="h1">{{ page.over_ons.title }}</h2>
+    <p class="center">{{ page.over_ons.text }}</p>
+</section>
+
+<section class="werkwijze">
+    <h2 class="h1">{{ page.werkwijze.title }}</h2>
+    <p class="center">{{ page.werkwijze.text }}</p>
+</section>
+
+<section class="prijzen">
+    <h2 class="h1">{{ page.prijzen.title }}</h2>
+    <ul class="block">
+        {% for item in page.prijzen.pakketten %}
+            <li>
+                <a class="clickbox" href="mailto:koen@klaarenkees.nl" onclick=clickToMail(event);></a>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.price }}</p>
+                <div>{{ item.markdown | markdownify }}</div>
+                <img src="/img/arrow_up.svg" alt="Arrow icon">
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class="contact">
+    <h2 class="h1">{{ page.contact.title }}</h2>
+    <ul class="block"> 
+        <li>
+            {{ page.contact.block_left.markdown | markdownify }}
+            <h3>{{ page.contact.block_left.social_title }}</h3>
+            <ul>
+                {% for item in page.contact.block_left.socials %}
+                    <li>
+                        <a href="{{ item.url }}"><img src="{{ item.icon_image }}" alt="{{ item.title }} icon" title="{{ item.title }}"></a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li>
+            {{ page.contact.block_right.markdown | markdownify }}
+            <img class="map" src="{{ page.contact.block_right.map_image }}" alt="A map of the office area">
+        </li>
+    </ul>
+</section>
+
+
+
+{% include footer.html %}

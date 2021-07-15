@@ -1,0 +1,17 @@
+mainmenu:
+  - title: Home
+    image: /img/logo_white.svg
+    url: home
+  - title: Over ons
+    image: /img/group.svg
+    url: over-ons
+  - title: Werkwijze
+    image: /img/process.svg
+    url: werkwijze
+  - title: Prijzen
+    image: /img/euro.svg
+    url: prijzen
+  - title: Contact
+    image: /img/contact.svg
+    url: contact
+  

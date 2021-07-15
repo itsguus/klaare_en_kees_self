@@ -1,4 +1,15 @@
 <header>
-
+    <nav>
+        <ul>
+            {% for item in site.data.navigation.mainmenu %}
+                <li>
+                    <label for="{{ item.title | slugify }}">
+                        <img class="{{ item.url }}" src="{{ item.image }}" alt="{{ item.title }}">
+                        <input type="radio" value="{{ item.url }}" name="nav" id="{{ item.url }}" onchange="setBodyClass(this)">
+                    </label>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
 </header>
 <main> 

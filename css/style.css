@@ -1,14 +1,52 @@
 * {padding: 0; margin: 0;  border: 0;}
 html {font-size: 20px; scroll-behavior: smooth;}
-body {font-size: 1rem; color: #000000; line-height: 1.4; font-family: "Raleway"; font-weight: 500; }
-a {text-decoration: none; color: #000000;}
+body {font-size: 1rem; color: #000000; line-height: 1.4; font-family: "Raleway"; font-weight: 500; background: #000; color: #FFF;}
+a {text-decoration: none; color: #FFF; }
 ul, ol {list-style-type: none;}
 p {margin-bottom: 1em;}
 br {margin:0 !important; color: #FFFFFF;}
 
-.w { color: #FFFFFF; }
+.b { color: #000000; }
+.paper { background: #EFE5D5; }
 
 /* HEADERS */
-h1 { font-weight: 600; font-size: 2rem;}
-h2 { font-weight: bold; text-transform: uppercase; font-size: 1.6rem;} 
+h1, .h1 { font-weight: 600; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px;}
+h2 { font-weight: bold; text-transform: uppercase; font-size: 2rem; letter-spacing: 2px;} 
 h3 { font-weight: 600; font-size: 1.2rem;}
+
+header {position: absolute;}
+header nav {margin: 0 2rem; }
+header nav ul {display: flex; flex-direction: column; }
+header nav ul li { margin-bottom: 0.5rem;}
+header nav ul li input {display: none; }
+header nav ul li label {cursor: pointer; padding: 0.5rem 0; display: inline-block;}
+header nav ul li img {width: 2.5rem; max-height: 2.5rem; opacity: 0.5}
+
+body.home nav ul li img.home,body.over-ons nav ul li img.over-ons,body.werkwijze nav ul li img.werkwijze,body.prijzen nav ul li img.prijzen,body.contact nav ul li img.contact {opacity: 1; }
+.home-collect.home section.home,.home-collect.over-ons section.over-ons,.home-collect.werkwijze section.werkwijze,.home-collect.prijzen section.prijzen,.home-collect.contact section.contact  {display: flex; flex-direction: column;}
+
+.home-collect section {margin: 2rem; height: calc(100vh - 4rem); display: none; }
+.home-collect section h1, .h1 {text-align: center;}
+.home-collect section .center  {text-align: center; margin: auto; transform: translateY(-50%); max-width: 30rem; }
+.home-collect section p.center  {font-size: 2rem; transform: none; display: block; font-weight: 600;}
+
+.home-collect section ul.block { display: flex; justify-content: center; margin-left: 1.5rem; margin: auto; padding-left: 4rem; padding-right: 2rem; width: calc(100% - 6rem);}
+.home-collect section ul.block > li {width: 100%; max-width: 17rem; display: flex; flex-direction: column; align-items: center; margin-right: 2rem; letter-spacing: 1px; text-align: center; border: 5px solid #FFFFFF; border-radius: 1rem; padding: 2rem 2rem 5rem; box-sizing: border-box; position: relative; overflow: hidden;}
+.home-collect section.prijzen ul.block li h3 {font-size: 2rem; }
+.home-collect section ul.block li ul li {margin-bottom: 0.5rem; }
+.home-collect section ul.block li a.clickbox {position: absolute; top: 0; left: 0; border-radius: 1rem; width: 100%; height: 100%;  z-index: 2;}
+.home-collect section.prijzen ul.block li img {position: absolute; bottom: -2px; transition: 500ms ease;}
+.home-collect section ul.block li::after {content: ""; display: block; width: 100%; height: 100%; bottom: 0; position: absolute; left: 0; background: #FFF; transform: translate3d(0, 100%, 0); transition: 500ms ease;}
+
+.home-collect section.prijzen > ul li:hover::after {transform: translate3d(0,95%,0);}
+.home-collect section.prijzen > ul li:hover img  {transform: translate3d(0,-1rem,0);}
+
+.home-collect section.prijzen > ul li.fly-over::after { transition: 1s ease-in;  transform:translate3d(0,-180%,0); }
+.home-collect section.prijzen > ul li.flown::after { transition: 0s !important;}
+.home-collect section.prijzen > ul li.fly-over:hover img  {transform: translate3d(0,0 ,0);}
+
+.home-collect section.contact > ul > li {padding-bottom: 1rem; padding-top: 3rem;}
+.home-collect section.contact > ul li ul {width: 100%; display: flex;  justify-content: space-around; align-items: center; margin-top: 1rem; margin-bottom: 1rem;}
+.home-collect section.contact > ul li ul li {width: calc(20% - 1rem); margin: 0 0.5rem; }
+.home-collect section.contact > ul li h3:not(:first-of-type) {font-weight: 600; margin-top: 2rem; }
+.home-collect section.contact > ul li img.map {max-width: 100%; border-radius: 0.5rem; transform: translateY(2rem);}
