@@ -1,14 +1,46 @@
 <header>
-    <nav>
+    <nav id='desktop'>
         <ul>
-            {% for item in site.data.navigation.mainmenu %}
-                <li>
-                    <label for="{{ item.title | slugify }}">
-                        <img class="{{ item.url }}" src="{{ item.image }}" alt="{{ item.title }}">
-                        <input type="radio" value="{{ item.url }}" name="nav" id="{{ item.url }}" onchange="setBodyClass(this)">
-                    </label>
+            {% if page.layout == 'home-collect' %}
+                {% for item in site.data.navigation.mainmenu %}
+                    <li>
+                        <label for="{{ item.title | slugify }}">
+                            <img class="{{ item.url }}" src="{{ item.image }}" alt="{{ item.title }}">
+                            <input type="radio" value="{{ item.url }}" name="nav" id="{{ item.url }}" onchange="setBodyClass(this)">
+                        </label>
+                        <span>{{ item.title }}</span>
+                    </li>
+                {% endfor %}
+                {% else %}
+                <li><a href="/"><img src="/img/logo_black.svg" alt="Klaar & Kees Media logo"></a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <nav id="mobile">
+        <input type="checkbox" class="burger">
+        <div class="burger">
+            <span></span><span></span><span></span>
+        </div>
+        <a href="/"><img src="/img/logo_white.svg" alt="Klaar & Kees media logo"></a>
+        <ul>
+            {% for item in site.data.navigation.mainmenu offset: 1 %}
+                <li class="{{ item.title | slugify }}">
+                    <a href="/{{ item.title | slugify }}/"><img src="{{ item.image }}" alt="{{ item.title }} icon"></a>
                 </li>
             {% endfor %}
+            <li class="info">
+                <label for="info">
+                    <img src="/img/info.svg" alt="Information icon">
+                </label>
+                <input type="checkbox" id="info">
+                <ul>
+                    {% for item in site.data.navigation.footermenu %}
+                        <li>
+                            <a href="/{{ item.title | slugify }}/">{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
         </ul>
     </nav>
 </header>

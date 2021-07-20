@@ -1,5 +1,5 @@
 ---
-title: Werkwijze
+title: Prijzen
 layout: redirect
-redirect: werkwijze
+redirect: prijzen
 ---

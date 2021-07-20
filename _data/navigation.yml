@@ -14,4 +14,10 @@ mainmenu:
   - title: Contact
     image: /img/contact.svg
     url: contact
-  
+
+
+footermenu: 
+    - title: Tips & Tricks
+    - title: Cookiebeleid
+    - title: Algemene voorwaarden
+    - title: Privacyverklaring

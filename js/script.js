@@ -10,7 +10,7 @@ function selectButton() {
         url = new URL(urlParam_string),
         urlParam = url.searchParams.get("view");
     selectedButton = document.querySelector(`header nav ul li input[value=${urlParam}]`);
-    setBodyClass(selectedButton);
+    if(selectedButton) setBodyClass(selectedButton);
 }
 selectButton();
 

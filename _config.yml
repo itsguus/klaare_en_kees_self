@@ -14,3 +14,6 @@ defaults:
     values:
       layout: "post"
 
+collections:
+  tips: 
+    output: true

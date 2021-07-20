@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,5 +40,5 @@
 <meta http-equiv="refresh" content="0; URL=/?view={{ page.redirect }}">{% endif %}
 
 </head>
-<body class="{{ page.layout }}" id="top">
+<body class="{{ page.layout }} {% if page.layout == 'home-collect' %}home{% else %}paper{% endif %}" id="top">
 {% include navigation.html %}

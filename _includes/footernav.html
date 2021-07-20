@@ -1,0 +1,10 @@
+<ul>
+    {% for item in site.data.navigation.footermenu %}
+    <li>
+        <a href="/{{ item.title | slugify }}/">{{ item.title }}</a>
+    </li>
+    {% endfor %}
+    <li>
+        <img src="/img/info.svg" alt="Information icon">
+    </li>
+</ul>

@@ -14,15 +14,59 @@ h1, .h1 { font-weight: 600; font-size: 1.2rem; text-transform: uppercase; letter
 h2 { font-weight: bold; text-transform: uppercase; font-size: 2rem; letter-spacing: 2px;} 
 h3 { font-weight: 600; font-size: 1.2rem;}
 
-header {position: absolute;}
-header nav {margin: 0 2rem; }
-header nav ul {display: flex; flex-direction: column; }
-header nav ul li { margin-bottom: 0.5rem;}
-header nav ul li input {display: none; }
-header nav ul li label {cursor: pointer; padding: 0.5rem 0; display: inline-block;}
-header nav ul li img {width: 2.5rem; max-height: 2.5rem; opacity: 0.5}
+header {position: absolute; width: 100%; }
+header nav#desktop {margin: 0 2rem; }
+header nav#mobile {display: none;}
+header nav#desktop ul {display: flex; flex-direction: column; }
+header nav#desktop ul li { margin-bottom: 0.5rem; display: flex; align-items: center; width: 3rem; overflow: hidden; transition: 500ms ease;}
+header nav#desktop ul li:hover {width: 8rem;}
+header nav#desktop ul li input {display: none; }
+header nav#desktop ul li label {cursor: pointer; padding: 0.5rem 0; display: inline-flex; height: 2.5rem;}
+header nav#desktop ul li img {width: 2.5rem; max-height: 2.5rem; opacity: 0.5; transition: 500ms ease;}
+header nav#desktop ul li span {text-transform: uppercase; letter-spacing: 1px; font-size: 0.7rem; padding-left: 0.7rem; opacity: 0; flex-shrink: 0; transition: 500ms ease;}
 
-body.home nav ul li img.home,body.over-ons nav ul li img.over-ons,body.werkwijze nav ul li img.werkwijze,body.prijzen nav ul li img.prijzen,body.contact nav ul li img.contact {opacity: 1; }
+header nav#desktop ul li:hover span {opacity: 1;}
+header nav#desktop ul li:hover img {opacity: 1;}
+
+header nav#mobile {width: calc(100% - 2rem);}
+header nav#mobile .burger {position: absolute; right: 1rem; top: 0.25rem; height: 1rem; width: 1.5rem; z-index: 98;}
+header nav#mobile input.burger {z-index: 99; opacity: 0; height: 1.5rem; cursor: pointer;}
+header nav#mobile .burger span {width: 100%; top: 0; height: 3px; border-radius: 0.5rem; background: #FFF; display: block; position: absolute; transition: 500ms ease;}
+header nav#mobile .burger span:nth-of-type(2) {top: 50%; }
+header nav#mobile .burger span:nth-of-type(3) {top: 100%; }
+
+header nav#mobile .burger:checked ~ .burger {transform: translateY(0.15rem) rotate(180deg);}
+header nav#mobile .burger:checked ~ .burger span {background: #000;}
+header nav#mobile .burger:checked ~ .burger span:nth-of-type(1) {transform: rotate(45deg); top: 50%;}
+header nav#mobile .burger:checked ~ .burger span:nth-of-type(2) {opacity: 0; transform: scaleX(0)}
+header nav#mobile .burger:checked ~ .burger span:nth-of-type(3) {transform: rotate(-45deg); top: 50%;}
+header nav#mobile .burger:checked ~ a { filter: brightness(0) }
+header nav#mobile .burger:checked ~ ul {transform: translate3d(0,0,0)}
+
+header nav#mobile > a {z-index: 98; position: relative; transition: 500ms ease;}
+header nav#mobile > ul {position: fixed; width: 100%;  height: 100%; left: 0; top: 0; background: #EFE5D5; display: flex; flex-direction: column; align-items: center; z-index: 97; justify-content: center; transform: translate3d(0,-100%,0); transition: 500ms ease;}
+header nav#mobile > ul > li {height: 5rem; position: relative; display: flex; flex-direction: column; align-items: center;} 
+header nav#mobile > ul li span {margin-top: -1rem; text-transform: uppercase; color: #000; font-size: 0.6rem; opacity: 0.75}
+header nav#mobile > ul li a {padding: 1rem; }
+header nav#mobile > ul li img {filter: brightness(0);}
+header nav#mobile > ul li.info {position: absolute; bottom: 1rem; right: 1rem; height: auto; align-items: flex-end;}
+header nav#mobile > ul li.info img {width: 1.5rem; user-select: none;}
+header nav#mobile > ul li.info label {cursor: pointer;}
+header nav#mobile > ul li.info input {display: none;}
+header nav#mobile > ul li.info ul {display: flex; flex-direction: column; order: -1; text-align: right; height: 0;  overflow: hidden; transition: 500ms ease; position: absolute; bottom: 2.5rem; width: 14rem; opacity: 0;}
+header nav#mobile > ul li.info ul li {margin-bottom: 0.5rem; flex-shrink: 0;}
+header nav#mobile > ul li.info ul li a {padding-right: 0; color: #000; letter-spacing: 1px;}
+
+header nav#mobile > ul li.info input:checked ~ ul {height: 7rem; opacity: 1;}
+
+.paper nav#mobile ul {background: #000}
+.paper nav#mobile ul li img {filter: none;}
+.paper header nav#mobile .burger:checked ~ .burger span {background: #FFF;}
+.paper header nav#mobile .burger:checked ~ a {filter: brightness(100);}
+.paper header nav#mobile > ul li.info ul li a {color: #FFF; }
+
+
+body.home nav#desktop ul li img.home,body.over-ons nav#desktop ul li img.over-ons,body.werkwijze nav#desktop ul li img.werkwijze,body.prijzen nav#desktop ul li img.prijzen,body.contact nav#desktop ul li img.contact {opacity: 1; }
 .home-collect.home section.home,.home-collect.over-ons section.over-ons,.home-collect.werkwijze section.werkwijze,.home-collect.prijzen section.prijzen,.home-collect.contact section.contact  {display: flex; flex-direction: column;}
 
 .home-collect section {margin: 2rem; height: calc(100vh - 4rem); display: none; }
@@ -50,3 +94,70 @@ body.home nav ul li img.home,body.over-ons nav ul li img.over-ons,body.werkwijze
 .home-collect section.contact > ul li ul li {width: calc(20% - 1rem); margin: 0 0.5rem; }
 .home-collect section.contact > ul li h3:not(:first-of-type) {font-weight: 600; margin-top: 2rem; }
 .home-collect section.contact > ul li img.map {max-width: 100%; border-radius: 0.5rem; transform: translateY(2rem);}
+
+
+footer { position: fixed; bottom: 0; width: 100%;  padding-top: 2rem;}
+footer nav {margin: 2rem; }
+footer nav ul {display: flex; justify-content: flex-end; align-items: center; margin-left: auto; width: 3rem; transition: 1000ms ease; overflow: hidden;}
+footer nav ul li:not(:last-of-type) {margin-bottom: 0.5rem; margin-right: 1.7rem;  flex-shrink: 0;}
+footer nav ul li a {color: #FFFFFF; padding: 0.5rem; letter-spacing: 1px; opacity: 0; transition: 1000ms ease; font-size: 0.8rem;}
+
+footer:hover nav ul {width: 100%;}
+footer:hover nav ul li a {opacity: 0.5; }
+footer nav ul li a:hover {opacity: 1;}
+
+
+.tips-tricks {background: #EFE5D5; margin-bottom: 5rem; }
+.tips-tricks footer nav ul li img {filter: brightness(0);}
+.tips-tricks nav#desktop ul li a img {opacity: 1;}
+.paper nav#desktop ul li a img {opacity: 1; filter: brightness(0);}
+
+.tips-tricks .tips {margin-top: 2rem; min-height: 30rem; color: #000; overflow: hidden;}
+.tips-tricks .tips h1 {text-transform: initial; color :#000; text-align: center; letter-spacing: 0; padding-top: 5rem; font-size: 3rem;}
+.tips-tricks .tips ul {display: flex; max-width: 66rem; margin: 0 auto; flex-wrap: wrap; justify-content: center; transform: translateX(3rem); width: calc(100% - 4rem);}
+.tips-tricks .tips ul li {margin: 5rem 4rem 0 0; max-width: 18rem; width: 100% ;position: relative;}
+.tips-tricks .tips ul h2 {text-transform: initial; font-size: 1.6rem; margin-bottom: 1.5rem; letter-spacing: 1px;}
+.tips-tricks .tips ul h2 a {color: #000; }
+.tips-tricks .tips ul .md {font-size: 0.9rem; }
+.tips-tricks .tips ul li > a { padding: 0.2rem 1rem; color: #000; text-transform: uppercase; border-radius: 2rem; border: 1px solid #000; font-size: 0.8rem;  display: inline-block; margin-top: 0.5rem; transition: 500ms ease; }
+.tips-tricks .tips ul li > a:hover {background: #000; color: #EFE5D5;}
+
+.tips-tricks .tips ul li:not(:nth-of-type(3n)):after {height: 100%; content: ""; display: block; border-right: 1px solid #000; position: absolute; top: 0; right: -1rem; } 
+.tips-tricks .tips ul li:last-of-type:after {display: none; } 
+
+@media only screen and (max-width: 1400px) {
+    .tips-tricks .tips ul li:not(:nth-of-type(3n)):after {display: none;} 
+    .tips-tricks .tips ul li:not(:nth-of-type(2n)):after {height: 100%; content: ""; display: block; border-right: 1px solid #000; position: absolute; top: 0; right: -1rem; }  
+    .tips-tricks .tips ul li:last-of-type:after {display: none; } 
+}
+
+@media only screen and (max-width: 959px) {
+    .tips-tricks header nav {margin: 0 1rem; }
+    .tips-tricks .tips {margin-top: 1rem;}
+
+    .tips-tricks .tips h1 { font-size: 2rem; }
+    .tips-tricks .tips ul {width: calc(100% - 2rem); transform: none; flex-direction: column; align-items: center;}
+    .tips-tricks .tips ul li {margin-right: 0;}
+    .tips-tricks .tips ul li:not(:nth-of-type(2n)):after {display: none; } 
+    .tips-tricks .tips ul li:first-of-type {margin-top: 2rem; } 
+    
+    .tips-tricks .tips ul li::before {content: ""; display: block; width: 100%; border-bottom: 1px solid #000; position: absolute; bottom: -2rem; margin: 0 auto;}
+}   
+
+@media only screen and (max-width: 900px) {
+    footer nav ul li:not(:last-of-type){ margin-right: 1rem}
+}   
+
+@media only screen and (max-width: 850px) {
+    header nav#desktop {display: none;}   
+    header nav#mobile {display: block; margin: 0 1rem; }   
+    footer { display: none; }
+    header nav#mobile > a {display: block; width: 2rem; }
+    
+    .paperheader nav#mobile > a { filter: brightness(0);}
+    .paper header nav#mobile .burger span {background: #000;}
+
+
+    .home-collect section {margin-top: 1rem;}
+    .home-collect section h1, .h1 {position: absolute; bottom: 1rem; left: 1rem; }
+}
