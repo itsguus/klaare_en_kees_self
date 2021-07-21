@@ -57,6 +57,9 @@ header nav#mobile > ul li.info ul {display: flex; flex-direction: column; order:
 header nav#mobile > ul li.info ul li {margin-bottom: 0.5rem; flex-shrink: 0;}
 header nav#mobile > ul li.info ul li a {padding-right: 0; color: #000; letter-spacing: 1px;}
 
+header nav#mobile > ul li.view input { display: none;}
+header nav#mobile > ul li.view label {cursor: pointer;}
+
 header nav#mobile > ul li.info input:checked ~ ul {height: 7rem; opacity: 1;}
 
 .paper nav#mobile ul {background: #000}
@@ -69,13 +72,20 @@ header nav#mobile > ul li.info input:checked ~ ul {height: 7rem; opacity: 1;}
 body.home nav#desktop ul li img.home,body.over-ons nav#desktop ul li img.over-ons,body.werkwijze nav#desktop ul li img.werkwijze,body.prijzen nav#desktop ul li img.prijzen,body.contact nav#desktop ul li img.contact {opacity: 1; }
 .home-collect.home section.home,.home-collect.over-ons section.over-ons,.home-collect.werkwijze section.werkwijze,.home-collect.prijzen section.prijzen,.home-collect.contact section.contact  {display: flex; flex-direction: column;}
 
+.home-collect .video {position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;}
+.home-collect .video video {position: absolute; width: 100%; height: 100%; top: 0; left: 0; object-fit: cover;}
 .home-collect section {margin: 2rem; height: calc(100vh - 4rem); display: none; }
 .home-collect section h1, .h1 {text-align: center;}
 .home-collect section .center  {text-align: center; margin: auto; transform: translateY(-50%); max-width: 30rem; }
 .home-collect section p.center  {font-size: 2rem; transform: none; display: block; font-weight: 600;}
 
-.home-collect section ul.block { display: flex; justify-content: center; margin-left: 1.5rem; margin: auto; padding-left: 4rem; padding-right: 2rem; width: calc(100% - 6rem);}
-.home-collect section ul.block > li {width: 100%; max-width: 17rem; display: flex; flex-direction: column; align-items: center; margin-right: 2rem; letter-spacing: 1px; text-align: center; border: 5px solid #FFFFFF; border-radius: 1rem; padding: 2rem 2rem 5rem; box-sizing: border-box; position: relative; overflow: hidden;}
+.home-collect section > div.ul_box {margin: auto; width: calc(100% - 6rem); max-width: 58rem;}
+.home-collect section.contact > div.ul_box {max-width: 38rem;}
+.home-collect section ul.block { display: flex; justify-content: space-between; width: 100%; margin-left: 1rem; scroll-behavior: smooth; }
+.hidescroll {  -ms-overflow-style: none;  scrollbar-width: none; }
+.hidescroll::-webkit-scrollbar  {display: none;}
+
+.home-collect section ul.block > li {width: 100%; max-width: 17rem; display: flex; flex-direction: column; align-items: center;  letter-spacing: 1px; text-align: center; border: 5px solid #FFFFFF; border-radius: 1rem; padding: 2rem 2rem 5rem; box-sizing: border-box; position: relative; overflow: hidden; margin-right: 2rem;}
 .home-collect section.prijzen ul.block li h3 {font-size: 2rem; }
 .home-collect section ul.block li ul li {margin-bottom: 0.5rem; }
 .home-collect section ul.block li a.clickbox {position: absolute; top: 0; left: 0; border-radius: 1rem; width: 100%; height: 100%;  z-index: 2;}
@@ -89,11 +99,17 @@ body.home nav#desktop ul li img.home,body.over-ons nav#desktop ul li img.over-on
 .home-collect section.prijzen > ul li.flown::after { transition: 0s !important;}
 .home-collect section.prijzen > ul li.fly-over:hover img  {transform: translate3d(0,0 ,0);}
 
-.home-collect section.contact > ul > li {padding-bottom: 1rem; padding-top: 3rem;}
-.home-collect section.contact > ul li ul {width: 100%; display: flex;  justify-content: space-around; align-items: center; margin-top: 1rem; margin-bottom: 1rem;}
-.home-collect section.contact > ul li ul li {width: calc(20% - 1rem); margin: 0 0.5rem; }
-.home-collect section.contact > ul li h3:not(:first-of-type) {font-weight: 600; margin-top: 2rem; }
-.home-collect section.contact > ul li img.map {max-width: 100%; border-radius: 0.5rem; transform: translateY(2rem);}
+.home-collect section .ul_box .dots { display: none; width: 4rem; justify-content: center; margin: 1rem auto -1rem;  }
+.home-collect section .ul_box .dot {background: #FFF; border-radius: 50%; height: 0.7rem; width: 0.7rem; opacity: 0.5; cursor: pointer; margin: 0 0.3rem}
+.home-collect section .ul_box .dot.active {opacity: 1;}
+
+
+.home-collect section.contact > div > ul > li {padding-bottom: 1rem; padding-top: 3rem;}
+.home-collect section.contact > div > ul > li {padding-bottom: 1rem; padding-top: 3rem;}
+.home-collect section.contact > div > ul li ul {width: 100%; display: flex;  justify-content: space-around; align-items: center; margin-top: 1rem; margin-bottom: 1rem;}
+.home-collect section.contact > div > ul li ul li {width: calc(20% - 1rem); margin: 0 0.5rem; }
+.home-collect section.contact > div > ul li h3:not(:first-of-type) {font-weight: 600; margin-top: 2rem; }
+.home-collect section.contact > div > ul li img.map {max-width: 100%; border-radius: 0.5rem; transform: translateY(2rem);}
 
 
 footer { position: fixed; bottom: 0; width: 100%;  padding-top: 2rem;}
@@ -129,7 +145,19 @@ footer nav ul li a:hover {opacity: 1;}
     .tips-tricks .tips ul li:not(:nth-of-type(3n)):after {display: none;} 
     .tips-tricks .tips ul li:not(:nth-of-type(2n)):after {height: 100%; content: ""; display: block; border-right: 1px solid #000; position: absolute; top: 0; right: -1rem; }  
     .tips-tricks .tips ul li:last-of-type:after {display: none; } 
+
+    .home-collect section> .ul_box {max-width: 50rem;}
+    .home-collect section.contact > div.ul_box {max-width: 30rem;}
+    .home-collect section ul.block > li {max-width: 14rem; font-size: 0.8rem; padding: 2rem 1rem 3.5rem; margin-right: 1rem;}
 }
+
+@media only screen and (max-width: 1001px) {
+    .home-collect section ul.block > li {max-width: 12rem; font-size: 0.6rem; } 
+    .home-collect section.contact ul.block > li {max-width: 15rem; font-size: 0.6rem; } 
+    
+    .home-collect section.prijzen ul.block li h3 {font-size: 1.4rem; }
+}
+
 
 @media only screen and (max-width: 959px) {
     .tips-tricks header nav {margin: 0 1rem; }
@@ -156,8 +184,21 @@ footer nav ul li a:hover {opacity: 1;}
     
     .paperheader nav#mobile > a { filter: brightness(0);}
     .paper header nav#mobile .burger span {background: #000;}
-
-
+    
+    
     .home-collect section {margin-top: 1rem;}
     .home-collect section h1, .h1 {position: absolute; bottom: 1rem; left: 1rem; }
+    
+    .home-collect section p.center {font-size: 1rem; }
+    .home-collect section h2.center {font-size: 1.6rem; transform: translateY(-20%);}
+    
+    .home-collect section ul.block  {width: calc(100% + 10rem); overflow: scroll; margin-left: -5rem;}
+    .home-collect section ul.block > li {max-width: 15rem; padding: 2rem 1rem 5rem; margin-right: 5%; flex-shrink: 0; font-size: 1rem;}
+    .home-collect section ul.block > li:first-of-type {margin-left: 10%;}
+    .home-collect section ul.block > li:last-of-type {margin-right: 10%;}
+    .home-collect section:not(.contact) .ul_box div.dots {display: flex; }
+}
+
+@media only screen and (max-width: 800px) {
+    .home-collect section.contact .ul_box div.dots {display: flex; }
 }

@@ -23,11 +23,22 @@
         </div>
         <a href="/"><img src="/img/logo_white.svg" alt="Klaar & Kees media logo"></a>
         <ul>
-            {% for item in site.data.navigation.mainmenu offset: 1 %}
+            {% unless page.layout == 'home-collect' %}
+                {% for item in site.data.navigation.mainmenu offset: 1 %}
                 <li class="{{ item.title | slugify }}">
                     <a href="/{{ item.title | slugify }}/"><img src="{{ item.image }}" alt="{{ item.title }} icon"></a>
                 </li>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                {% for item in site.data.navigation.mainmenu offset: 1 %}
+                    <li class="view">
+                        <label for="{{ item.title | slugify }}">
+                            <img class="{{ item.url }}" src="{{ item.image }}" alt="{{ item.title }}">
+                            <input type="radio" value="{{ item.url }}" name="nav" id="{{ item.url }}" onchange="setBodyClass(this)">
+                        </label>
+                    </li>
+                {% endfor %}
+            {% endunless %}
             <li class="info">
                 <label for="info">
                     <img src="/img/info.svg" alt="Information icon">

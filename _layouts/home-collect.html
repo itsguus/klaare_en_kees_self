@@ -1,5 +1,9 @@
 {% include header.html %}
 
+<div class="video">
+    <!-- <video src="{{ page.video }}" autoplay loop></video> -->
+</div>
+
 <section class="home">
     <h1>{{ page.home.title }}</h1>
     <h2 class="center">{{ page.home.text }}</h2>
@@ -17,38 +21,51 @@
 
 <section class="prijzen">
     <h2 class="h1">{{ page.prijzen.title }}</h2>
-    <ul class="block">
-        {% for item in page.prijzen.pakketten %}
-            <li>
-                <a class="clickbox" href="mailto:koen@klaarenkees.nl" onclick=clickToMail(event);></a>
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.price }}</p>
-                <div>{{ item.markdown | markdownify }}</div>
-                <img src="/img/arrow_up.svg" alt="Arrow icon">
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="ul_box">
+        <ul class="block hidescroll" data-dots=3>
+            {% for item in page.prijzen.pakketten %}
+                <li>
+                    <a class="clickbox" href="mailto:koen@klaarenkees.nl" onclick=clickToMail(event);></a>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.price }}</p>
+                    <div>{{ item.markdown | markdownify }}</div>
+                    <img src="/img/arrow_up.svg" alt="Arrow icon">
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="dots">
+            <div onclick="scrollOnClick(this.parentNode.parentNode.querySelector('ul'), 0)" class="dot active"></div>
+            <div onclick="scrollOnClick(this.parentNode.parentNode.querySelector('ul'), 1)" class="dot"></div>
+            <div onclick="scrollOnClick(this.parentNode.parentNode.querySelector('ul'), 2)" class="dot"></div>
+        </div>
+    </div>
 </section>
 
 <section class="contact">
     <h2 class="h1">{{ page.contact.title }}</h2>
-    <ul class="block"> 
-        <li>
-            {{ page.contact.block_left.markdown | markdownify }}
-            <h3>{{ page.contact.block_left.social_title }}</h3>
-            <ul>
-                {% for item in page.contact.block_left.socials %}
+    <div class="ul_box">
+        <ul class="block hidescroll contact" data-dots=2> 
+            <li>
+                {{ page.contact.block_left.markdown | markdownify }}
+                <h3>{{ page.contact.block_left.social_title }}</h3>
+                <ul>
+                    {% for item in page.contact.block_left.socials %}
                     <li>
                         <a href="{{ item.url }}"><img src="{{ item.icon_image }}" alt="{{ item.title }} icon" title="{{ item.title }}"></a>
                     </li>
-                {% endfor %}
-            </ul>
-        </li>
-        <li>
-            {{ page.contact.block_right.markdown | markdownify }}
-            <img class="map" src="{{ page.contact.block_right.map_image }}" alt="A map of the office area">
-        </li>
-    </ul>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li>
+                {{ page.contact.block_right.markdown | markdownify }}
+                <img class="map" src="{{ page.contact.block_right.map_image }}" alt="A map of the office area">
+            </li>
+        </ul>
+        <div class="dots">
+            <div onclick="scrollOnClick(this.parentNode.parentNode.querySelector('ul'), 0)" class="dot active"></div>
+            <div onclick="scrollOnClick(this.parentNode.parentNode.querySelector('ul'), 1)" class="dot"></div>
+        </div>
+    </div>
 </section>
 
 

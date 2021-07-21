@@ -1,6 +1,7 @@
 ---
 title: Home
 layout: home-collect
+video: /uploads/video.mp4
 home: 
     title: Klaar & Kees Media
     text: Video's voor uw bedrijf met karakter & pit
