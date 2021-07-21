@@ -146,7 +146,7 @@ footer nav ul li a:hover {opacity: 1;}
     .tips-tricks .tips ul li:not(:nth-of-type(2n)):after {height: 100%; content: ""; display: block; border-right: 1px solid #000; position: absolute; top: 0; right: -1rem; }  
     .tips-tricks .tips ul li:last-of-type:after {display: none; } 
 
-    .home-collect section> .ul_box {max-width: 50rem;}
+    .home-collect section > div.ul_box {max-width: 50rem;}
     .home-collect section.contact > div.ul_box {max-width: 30rem;}
     .home-collect section ul.block > li {max-width: 14rem; font-size: 0.8rem; padding: 2rem 1rem 3.5rem; margin-right: 1rem;}
 }

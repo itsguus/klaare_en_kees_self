@@ -34,9 +34,9 @@
             {% endfor %}
         </ul>
         <div class="dots">
-            <div onclick="scrollOnClick(this.parentNode.parentNode.querySelector('ul'), 0)" class="dot active"></div>
-            <div onclick="scrollOnClick(this.parentNode.parentNode.querySelector('ul'), 1)" class="dot"></div>
-            <div onclick="scrollOnClick(this.parentNode.parentNode.querySelector('ul'), 2)" class="dot"></div>
+            {% for item in page.prijzen.pakketten %}
+                <div onclick="scrollOnClick(this.parentNode.parentNode.querySelector('ul'), {{ forloop.index }})" class="dot {% if forloop.first %}actie{% endif %}"></div>
+            {% endfor %}
         </div>
     </div>
 </section>
